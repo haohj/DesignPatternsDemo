@@ -1,7 +1,12 @@
-package com.hao.factory;
+package com.hao.abstractFactory;
 
-public class ShapeFactory {
-    //使用 getShape 方法获取形状类型的对象
+import com.hao.factory.Circle;
+import com.hao.factory.Rectangle;
+import com.hao.factory.Shape;
+import com.hao.factory.Square;
+
+public class ShapeFactory extends AbstractFactory {
+    @Override
     public Shape getShape(String shapeType) {
         if ("CIRCLE".equalsIgnoreCase(shapeType)) {
             return new Circle();
@@ -10,6 +15,11 @@ public class ShapeFactory {
         } else if ("SQUARE".equalsIgnoreCase(shapeType)) {
             return new Square();
         }
+        return null;
+    }
+
+    @Override
+    public Color getColor(String colorType) {
         return null;
     }
 }
